@@ -19,113 +19,166 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const primary = Colors.deepPurple;
+    final bg = const Color(0xFFF5F7FB);
+
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: bg,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(height: 40),
+              const SizedBox(height: 24),
+              const CircleAvatar(
+                radius: 60,
+                backgroundColor: primary,
+                child: Icon(Icons.person, color: Colors.white, size: 56),
+              ),
+              const SizedBox(height: 24),
               const Text(
-                'Bonjour',
+                'Salut Alex !',
+                textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 32,
-                  fontWeight: FontWeight.w300,
-                  height: 1.1,
+                  color: Color(0xFF263238),
+                  fontSize: 36,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
               const SizedBox(height: 8),
               Text(
-                'Votre espace personnel',
-                style: TextStyle(
-                  color: Colors.grey.shade400,
-                  fontSize: 16,
+                'Prêt pour une nouvelle journée ?',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.blueGrey.shade400, fontSize: 18),
+              ),
+              const SizedBox(height: 32),
+              Card(
+                elevation: 8,
+                shadowColor: Colors.black12,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(28),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 28,
+                  ),
+                  child: Column(
+                    children: [
+                      const Icon(Icons.check_circle, size: 64, color: primary),
+                      const SizedBox(height: 16),
+                      const Text(
+                        'Tâches du jour',
+                        style: TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.w800,
+                          color: Color(0xFF263238),
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Vous avez 4 tâches à compléter',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.blueGrey.shade400,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              const SizedBox(height: 50),
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(24),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Projets',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 28,
-                        fontWeight: FontWeight.w700,
+              const SizedBox(height: 24),
+              Row(
+                children: [
+                  Expanded(
+                    child: Card(
+                      elevation: 8,
+                      shadowColor: Colors.black12,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 28),
+                        child: Column(
+                          children: [
+                            const Text(
+                              '12',
+                              style: TextStyle(
+                                fontSize: 40,
+                                fontWeight: FontWeight.w800,
+                                color: primary,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              'Terminées',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.blueGrey.shade400,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    const SizedBox(height: 20),
-                    Text(
-                      '3 projets en cours',
-                      style: TextStyle(
-                        color: Colors.grey.shade600,
-                        fontSize: 20,
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Card(
+                      elevation: 8,
+                      shadowColor: Colors.black12,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 28),
+                        child: Column(
+                          children: [
+                            const Text(
+                              '4',
+                              style: TextStyle(
+                                fontSize: 40,
+                                fontWeight: FontWeight.w800,
+                                color: Colors.redAccent,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              'En cours',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.blueGrey.shade400,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              const SizedBox(height: 20),
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(24),
-                decoration: BoxDecoration(
-                  color: Colors.grey[900],
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Activité',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 28,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    Text(
-                      "Dernière connexion : aujourd'hui",
-                      style: TextStyle(
-                        color: Colors.grey.shade400,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-          
-              const SizedBox(height: 40),
+              const Spacer(),
               SizedBox(
-                width: 200,
+                width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    foregroundColor: Colors.black,
+                    backgroundColor: primary,
+                    foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(vertical: 18),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(24),
                     ),
                     textStyle: const TextStyle(
                       fontSize: 22,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                   child: const Text('Commencer'),
                 ),
               ),
+              const SizedBox(height: 16),
             ],
           ),
         ),
