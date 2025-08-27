@@ -75,7 +75,7 @@ class DarkDashboard extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 26,
-              backgroundColor: color.withOpacity(.25),
+              backgroundColor: color.withOpacity(0.25),
               child: Icon(icon, color: color, size: 28),
             ),
             const SizedBox(width: 16),
